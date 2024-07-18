@@ -10,14 +10,10 @@ from ml.model import train_model, inference, performance_on_categorical_slice, l
 # Load the census.csv data
 @pytest.fixture
 def load_data():
+    print("Hello")
     data_path = os.path.join('data', 'census.csv')
-    column_names = [
-        "age", "workclass", "fnlwgt", "education", "education-num",
-        "marital-status", "occupation", "relationship", "race", "sex",
-        "capital-gain", "capital-loss", "hours-per-week", "native-country",
-        "income"
-    ]
-    data = pd.read_csv(data_path, names=column_names, skipinitialspace=True)
+    data = pd.read_csv(data_path)
+    print(data.columns)
     return data
 
 # Test function to check if the data loading is successful

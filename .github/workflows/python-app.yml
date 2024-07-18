@@ -31,6 +31,9 @@ jobs:
       run: |
         mkdir -p data
         wget -O data/census.csv https://archive.ics.uci.edu/ml/machine-learning-databases/adult/adult.data
+    - name: Add column names to census data
+      run: |
+        sed -i '1iage,workclass,fnlwgt,education,education-num,marital-status,occupation,relationship,race,sex,capital-gain,capital-loss,hours-per-week,native-country,salary' data/census.csv
     - name: Lint with flake8
       run: |
         # stop the build if there are Python syntax errors or undefined names
@@ -39,4 +42,4 @@ jobs:
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Test with pytest
       run: |
-        pytest
+        pytest -v
