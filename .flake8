@@ -1,0 +1,14 @@
+[flake8]
+exclude =
+    .git,
+    __pycache__,
+    build,
+    dist,
+    venv,
+    .venv,
+    env,
+    .env,
+    ./fastapi/lib/python3.9/site-packages
+ignore = F821, E203, W503
+max-line-length = 120
+max-complexity = 10
