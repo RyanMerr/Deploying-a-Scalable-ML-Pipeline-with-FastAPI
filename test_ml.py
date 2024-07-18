@@ -10,16 +10,7 @@ from ml.model import train_model, inference, performance_on_categorical_slice, l
 # Load the census.csv data
 @pytest.fixture
 def load_data():
-    # Get the directory of the current script
-    current_dir = os.path.dirname(os.path.abspath(__file__))
-
-# Go up one level to the project root
-    project_root = os.path.dirname(current_dir)
-
-# Construct the path to the data file
-    data_path = os.path.join(project_root, 'data', 'census.csv')
-    # project_path = "/Users/ryanmerrithew/Deploying-a-Scalable-ML-Pipeline-with-FastAPI/"
-    # data_path = os.path.join(project_path, "data", "census.csv")
+    data_path = os.path.join('data', 'census.csv')
     data = pd.read_csv(data_path)
     return data
 
